@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,7 +51,7 @@ public class DriveAdapter extends ArrayAdapter<DriveVO> {
         TextView nameView = holder.name;
         ImageView photoView = holder.photo;
         TextView dateView = holder.date;
-        ImageView phoneView=holder.phone;
+        ImageButton phoneView=holder.phone;
 
         //ArrayList<DriveVO>타입의 datas에서 arraylist 주소를 가져와 DriveVO타입의 vo에 저장
         final DriveVO vo = datas.get(position);
@@ -60,23 +61,23 @@ public class DriveAdapter extends ArrayAdapter<DriveVO> {
         dateView.setText(vo.date);
 
         //vo의 photo의 이름이 nomal이면 기본 이미지
-        if (vo.photo.equals("basic")) {
+        if (vo.photo.equals("no")) {
             photoView.setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_person, null));
-        } else if (vo.photo.equals("hong")) {
+        } else if (vo.photo.equals("yes")) {
             photoView.setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hong, null));
         }
 
-        //폰뷰 클릭시 전화걸기
-        phoneView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:"+vo.phone));
-                context.startActivity(intent);
-            }
-        });
-
+        if(vo.phone != null && !vo.phone.equals("")){
+            phoneView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse("tel:" + vo.phone));
+                    context.startActivity(intent);
+                }
+            });
+        }
         return convertView;
     }
 }

@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/custom_item_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
     <ImageView
         android:id="@+id/custom_item_photo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <ImageView
-        android:id="@+id/custom_item_phone"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_person" />
+
+    <TextView
+        android:id="@+id/custom_item_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/custom_item_photo" />
+
     <TextView
         android:id="@+id/custom_item_date"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_alignLeft="@id/custom_item_name"
+        android:layout_toRightOf="@id/custom_item_photo"/>
+
+    <ImageButton
+        android:id="@+id/custom_item_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dialer"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+
+        />
+
+    <!--
+    <ImageView
+        android:id="@+id/custom_item_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dialer"
+        android:layout_alignParentRight="@id/custom_item_photo" />
+
+    <TextView
+        android:id="@+id/custom_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp" />
+        -->
 </RelativeLayout>

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <ListView
-        android:id="@+id/list_name"
+        android:id="@+id/main_listview_array"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
