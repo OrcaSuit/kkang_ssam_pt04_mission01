@@ -27,9 +27,11 @@ public class MainActivity extends AppCompatActivity {
         ListView arraylistView = (ListView) findViewById(R.id.main_listview_array);
 
 
+        //Manifest 파일에서 퍼미션을 확인후 == PREMISSION GRANTED 라면 Main의 Boolean 멤버를 true
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
             phonecallPermission = true;
         }
+
 
         if(!phonecallPermission){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 200);
